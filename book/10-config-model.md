@@ -12,6 +12,8 @@ OpenClaw 的核心配置文件就在这里：
 
 `~` 就是你的用户目录， macOS 就是 `/Users/你的用户名/.openclaw/openclaw.json`。这个文件就是一个普通的 JSON 文件，你用 VS Code 或者任何文本编辑器都能打开编辑，很方便。
 
+> 💡 **JSON 是什么？** JSON 是一种用来存储配置信息的格式，就像一份结构化的购物清单。它用大括号 `{}` 表示一组相关的信息，用方括号 `[]` 表示一个列表，用冒号 `:` 表示"名字和对应的值"。比如 `"name": "小管家"` 就是说"名字是小管家"。它对格式要求比较严格——少一个逗号、多一个括号都会报错。不过不用担心，后面我会教你怎么检查。
+
 ## 这个配置文件里到底有什么
 
 你打开一看，里面一级菜单就这几个，我给你说哪个我们需要改：
@@ -42,9 +44,6 @@ gateway  → 网关网络配置，一般不用改
 "models": {
   "mode": "merge",
   "providers": {
-    // ... 这里已经有你之前配置的模型了，不用动 ...
-    
-    // 👈 你把这块加进去，改成你自己的 API Key
     "bailian": {
       "baseUrl": "https://dashscope.aliyun.com/completion",
       "api": "dashscope-messages",
@@ -74,7 +73,7 @@ gateway  → 网关网络配置，一般不用改
 
 | 字段 | 干什么 |
 |------|----------|
-| `baseUrl` | 厂商给你的 API 地址，去它文档找就能找到 |
+| `baseUrl` | 厂商给你的 API 地址（就是大模型服务的"入口网址"），去厂商文档找就能找到。注意要完整复制，不要多加或少加 `/` |
 | `api` | API 格式，OpenClaw 支持几种常用的，比如 `anthropic-messages` / `openai-chat` / `dashscope-messages` |
 | `apiKey` | 你的 API Key 填这里 |
 | `models` → `id` | 模型 ID，厂商叫它什么你就填什么 |
@@ -85,11 +84,21 @@ gateway  → 网关网络配置，一般不用改
 | `models` → `contextWindow` | 它上下文窗口多大，多少 tokens |
 | `models` → `maxTokens`  | 最大输出多少 tokens |
 
+> 💡 **"mode": "merge" 是什么意思？** 这个字段告诉 OpenClaw：你新加的模型配置和已有的配置**合并在一起**，不会覆盖。就是说你加新的不影响旧的，不用担心。你不用改它，保持默认就行。
+>
+> 💡 **"reasoning" 是什么意思？** 有些新一代大模型支持"推理思考"——就是在回答你的问题之前，先在内部"敢想"一番，把思考过程理清楚了再回答你。这种模型处理复杂问题（比如数学计算、多步骤任务）更准确，但回复会稍微慢一点，token 用量也多一些。如果你的模型支持这个功能，就填 true；不确定的话填 false 就行。
+>
+> 💡 **token 和 contextWindow 是什么？** 前面准备工作章我们说过，token 就是大模型计费的单位，大概一个汉字算一个 token。`contextWindow` 就是这个模型一次能"记住"多少文字——128000 就是大约能记住 12 万字，已经很多了。`maxTokens` 就是 AI 一次最多能回复你多少字。这些你照着模板填就行，不用纠结。
+
 照着模板填，注意一下**括号逗号别漏了**，JSON 格式错了就加载失败，你填完可以去网上找个"JSON 校验"工具检查一下，没问题再保存。
+
+> 💡 **如果你用 DeepSeek**，配置更简单，把上面的 `baseUrl` 改成 `https://api.deepseek.com`，`api` 改成 `openai-chat`，模型 ID 填 `deepseek-chat` 就行。DeepSeek 性价比很高，中文能力好，推荐国内朋友用。
+>
+> ⚠️ 各家厂商的 `baseUrl` 地址可能会更新，建议以厂商官方文档为准。如果配置后连接不上，第一步就去官方文档确认一下地址有没有变。
 
 ### 第二步：在 `agents.defaults` 配置默认模型
 
-加好模型信息了，你还要告诉 OpenClav **默认用哪个模型**。找到 `agents` → `defaults` → `model`，改成这样：
+加好模型信息了，你还要告诉 OpenClaw **默认用哪个模型**。找到 `agents` → `defaults` → `model`，改成这样：
 
 ```json
 "agents": {
