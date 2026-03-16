@@ -1,0 +1,38 @@
+---
+title: "OpenClaw 小龙虾入门指南"
+subtitle: "从零开始，手把手教你搭建自己的 AI 智能体"
+author: "马力"
+date: "2026 年 3 月"
+lang: zh-CN
+documentclass: report
+classoption:
+  - a4paper
+  - 12pt
+geometry:
+  - top=2.5cm
+  - bottom=2.5cm
+  - left=2.8cm
+  - right=2.8cm
+toc: true
+toc-depth: 2
+numbersections: false
+colorlinks: true
+linkcolor: NavyBlue
+urlcolor: NavyBlue
+toccolor: NavyBlue
+mainfont: "PingFang SC"
+sansfont: "PingFang SC"
+monofont: "Menlo"
+CJKmainfont: "PingFang SC"
+linestretch: 1.4
+header-includes:
+  - \usepackage{fancyhdr}
+  - \usepackage{xcolor}
+  - \pagestyle{fancy}
+  - \fancyhf{}
+  - \fancyhead[L]{\small\textcolor{gray}{OpenClaw 小龙虾入门指南}}
+  - \fancyfoot[C]{\small\textcolor{gray}{\thepage}}
+  - \renewcommand{\headrulewidth}{0.4pt}
+  - \renewcommand{\footrulewidth}{0pt}
+  - \renewcommand{\contentsname}{目\quad 录}
+---

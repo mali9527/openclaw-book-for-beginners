@@ -10,7 +10,19 @@ OpenClaw 的核心配置文件就在这里：
 ~/.openclaw/openclaw.json
 ```
 
-`~` 就是你的用户目录， macOS 就是 `/Users/你的用户名/.openclaw/openclaw.json`。这个文件就是一个普通的 JSON 文件，你用 VS Code 或者任何文本编辑器都能打开编辑，很方便。
+`~` 就是你的用户目录：
+
+| 系统 | 配置文件完整路径 |
+|------|-----------------|
+| **macOS** | `/Users/你的用户名/.openclaw/openclaw.json` |
+| **Windows** | `C:\Users\你的用户名\.openclaw\openclaw.json` |
+
+这个文件就是一个普通的 JSON 文件，你用 VS Code 或者 Cursor 打开编辑就行。
+
+> ⚠️ **找不到 .openclaw 文件夹？** 它是一个"隐藏文件夹"——文件名以点（`.`）开头的文件夹默认不显示。查看方法：
+> - **macOS Finder**：按 `Command + Shift + .`（三个键同时按），隐藏文件就显示出来了，再按一次隐藏回去
+> - **Windows 文件资源管理器**：点击"查看"菜单 → 勾选"显示隐藏的项目"
+> - **终端**：输入 `ls -la ~/`（macOS）或 `dir -Force ~\`（Windows PowerShell）
 
 > 💡 **JSON 是什么？** JSON 是一种用来存储配置信息的格式，就像一份结构化的购物清单。它用大括号 `{}` 表示一组相关的信息，用方括号 `[]` 表示一个列表，用冒号 `:` 表示"名字和对应的值"。比如 `"name": "小管家"` 就是说"名字是小管家"。它对格式要求比较严格——少一个逗号、多一个括号都会报错。不过不用担心，后面我会教你怎么检查。
 
@@ -35,6 +47,22 @@ gateway  → 网关网络配置，一般不用改
 ## 添加一个新模型，我一步步带你做
 
 我给你举个实际例子，比如我们添加阿里云百炼的通义千问，你照着做就行：
+
+### 第零步：用 VS Code 打开配置文件
+
+**macOS** —— 在终端输入：
+
+```bash
+code ~/.openclaw/openclaw.json
+```
+
+**Windows** —— 在 PowerShell 输入：
+
+```powershell
+code $HOME\.openclaw\openclaw.json
+```
+
+打开后你会看到一个 JSON 文件，别被吓到——我们只需要改其中两个地方。
 
 ### 第一步：在 `models.providers` 添加你的模型信息
 

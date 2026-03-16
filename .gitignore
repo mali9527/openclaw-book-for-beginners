@@ -1,6 +1,15 @@
 # Output files
-*.pdf
-output/*
+pub/pdf/*.pdf
+pub/html/*.html
+src/full-book.md
+
+# LaTeX intermediate files
+*.aux
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+*.toc
 
 # OS files
 .DS_Store

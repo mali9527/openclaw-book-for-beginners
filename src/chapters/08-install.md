@@ -20,6 +20,10 @@ npm install -g openclaw@latest
 
 输完了你就歇会儿，等它装，几分钟就好了。中间会出来一堆 warning（警告），你不用管，那些不影响用，只要最后没说"error"（错误）就是没问题。
 
+> ⚠️ **npm WARN 不等于出错！** 安装过程中你会看到很多黄色的 `WARN` 信息，比如 `npm WARN deprecated` 或者 `npm WARN optional`。**这些全是正常的**，不用理会。它只是在告诉你"某些包有了更新版本"或者"某些可选依赖没装上"，完全不影响使用。只要没有红色的 `ERR!` 或者 `error`，就没问题。
+>
+> 💡 **如果你用 sudo 安装**（命令前加了 `sudo`），终端会要你输入电脑密码。注意：**你输入密码的时候屏幕上什么都不会显示**——不是卡住了，也不是键盘坏了，是终端故意不显示密码，防止别人偷看。你照常打完密码按回车就行。
+
 ## 装完了，怎么验证装上了？
 
 很简单，输入这个命令：
@@ -110,6 +114,32 @@ WebUI: http://127.0.0.1:18789/token/xxxxxxxxxx
 
 要是你已经配置了 API Key，现在就能直接在 WebUI 里聊天了，试试问它一个问题，看它回不回。
 
+## 🏠 小龙虾的"家"在哪里？
+
+安装完了你可能会好奇：OpenClaw 的配置、技能、记忆这些东西，到底存在我电脑的哪里？
+
+**答案：全部存在一个叫 `.openclaw` 的文件夹里。**
+
+| 系统 | 完整路径 | 怎么打开它 |
+|------|---------|-----------|
+| **macOS** | `/Users/你的用户名/.openclaw/` | 打开 Finder → 按 `Command + Shift + G` → 输入 `~/.openclaw` → 回车 |
+| **Windows** | `C:\Users\你的用户名\.openclaw\` | 打开文件资源管理器 → 地址栏输入 `%USERPROFILE%\.openclaw` → 回车 |
+
+打开后你会看到这些文件和文件夹：
+
+```
+.openclaw/
+├── openclaw.json    ← 核心配置文件（相当于"大脑设置"）
+├── workspace/       ← SOUL.md、USER.md 等人设文件在这里
+├── skills/          ← 你装的技能在这里
+├── knowledge/       ← 你的知识库在这里
+└── logs/            ← 运行日志在这里
+```
+
+> 💡 **建议你把这个文件夹"收藏"起来。** macOS 用户可以把 `.openclaw` 文件夹拖到 Finder 侧边栏的"个人收藏"里；Windows 用户可以右键 → "固定到快速访问"。这样以后你随时能找到它，不用每次都手动输路径。
+>
+> ⚠️ **`.openclaw` 是一个隐藏文件夹**（文件名以 `.` 开头），默认不显示。显示方法：macOS 按 `Command + Shift + .`，Windows 在"查看"菜单勾选"显示隐藏的项目"。
+
 ## 装错了，出问题了怎么办？
 
 很简单：
@@ -122,9 +152,11 @@ WebUI: http://127.0.0.1:18789/token/xxxxxxxxxx
 
 | 问题 | 原因 | 解决办法 |
 |------|------|----------|
-| `command not found` | npm 全局目录没在 PATH 里 | 关掉终端重开；或搜"npm global bin PATH" |
-| 安装过程报红色 `error` | 可能是网络问题或权限问题 | 检查网络；macOS 试试 `sudo npm install -g openclaw@latest`（sudo 就是"以管理员身份运行"，会要求你输入电脑密码） |
+| `command not found`（macOS）或 `不是可识别的命令`（Windows） | npm 全局目录没在 PATH 里 | 关掉终端重开；或搜"npm global bin PATH" |
+| 安装过程报红色 `error` | 可能是网络问题或权限问题 | 检查网络；macOS 试试 `sudo npm install -g openclaw@latest`；Windows 以管理员身份运行 PowerShell |
 | Node.js 版本太低 | 需要 22 以上版本 | 去 nodejs.org 下载最新 LTS 版本 |
+
+> 💡 **Windows 用管理员身份运行 PowerShell 的方法**：在开始菜单搜索"PowerShell"→ 右键 →"以管理员身份运行"→ 点"是"。
 
 ## 不想折腾命令行？还有其他安装方式
 
