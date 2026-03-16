@@ -2,6 +2,8 @@
 
 上一章讲了核心三件套，这一章我们来看**办公场景**——每天都在用的邮件、日历、文档、表格，怎么用 OpenClaw 自动化。
 
+> 💻 **Windows 用户注意：** 这一章所有的 `clawhub install` 命令在 PowerShell 里都能直接用。配置文件路径 `~/.openclaw/` 对应 Windows 的 `%USERPROFILE%\.openclaw\`。
+
 ---
 
 ## 1. GOG —— Google 全家桶一键管理

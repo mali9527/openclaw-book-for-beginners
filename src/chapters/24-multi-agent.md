@@ -34,6 +34,12 @@ mkdir -p ~/openclaw-agents/content-agent
 mkdir -p ~/openclaw-agents/data-agent
 ```
 
+> 💻 **Windows 用户：** 打开 PowerShell，输入：
+> ```powershell
+> New-Item -ItemType Directory -Force -Path "$HOME\openclaw-agents\content-agent"
+> New-Item -ItemType Directory -Force -Path "$HOME\openclaw-agents\data-agent"
+> ```
+
 > 💡 **这两行命令在干什么？** 在你的用户目录下创建了一个 `openclaw-agents` 文件夹，里面有两个子文件夹，分别给"内容助手"和"数据助手"用。
 
 执行完后，你可以验证一下是否成功：
@@ -41,6 +47,8 @@ mkdir -p ~/openclaw-agents/data-agent
 ```bash
 ls ~/openclaw-agents/
 ```
+
+> 💻 **Windows 用户：** `dir "$HOME\openclaw-agents\"`
 
 你应该看到两个文件夹名：`content-agent` 和 `data-agent`。
 
@@ -50,7 +58,9 @@ ls ~/openclaw-agents/
 
 用 VS Code 或 Cursor 创建一个新文件：
 
-**文件路径：** `~/openclaw-agents/content-agent/SOUL.md`
+**文件路径：**
+- macOS / Linux：`~/openclaw-agents/content-agent/SOUL.md`
+- Windows：`%USERPROFILE%\openclaw-agents\content-agent\SOUL.md`
 
 在终端里可以直接这样创建和编辑：
 
@@ -58,7 +68,9 @@ ls ~/openclaw-agents/
 code ~/openclaw-agents/content-agent/SOUL.md
 ```
 
-> 💡 **`code` 命令打不开？** 那就用 Finder 打开 `~/openclaw-agents/content-agent/` 文件夹，右键 → 新建文件 → 命名为 `SOUL.md`，然后用 VS Code 打开编辑。
+> 💻 **Windows 用户：** `code "$HOME\openclaw-agents\content-agent\SOUL.md"`
+
+> 💡 **`code` 命令打不开？** macOS 用户用 Finder 打开文件夹，右键新建文件；Windows 用户用文件资源管理器打开文件夹，右键 → 新建文本文档 → 命名为 `SOUL.md`，然后用 VS Code 打开编辑。
 
 把下面这段内容**复制粘贴**进去，保存：
 
@@ -85,11 +97,15 @@ code ~/openclaw-agents/content-agent/SOUL.md
 
 ### 第 3 步：给数据助手写性格设定
 
-**文件路径：** `~/openclaw-agents/data-agent/SOUL.md`
+**文件路径：**
+- macOS / Linux：`~/openclaw-agents/data-agent/SOUL.md`
+- Windows：`%USERPROFILE%\openclaw-agents\data-agent\SOUL.md`
 
 ```bash
 code ~/openclaw-agents/data-agent/SOUL.md
 ```
+
+> 💻 **Windows 用户：** `code "$HOME\openclaw-agents\data-agent\SOUL.md"`
 
 把下面这段内容**复制粘贴**进去，保存：
 
@@ -128,6 +144,15 @@ clawhub install summarize
 clawhub install spell-check-cn
 ```
 
+> 💻 **Windows 用户：** 打开 PowerShell，输入：
+> ```powershell
+> New-Item -ItemType Directory -Force -Path "$HOME\openclaw-agents\content-agent\skills"
+> cd "$HOME\openclaw-agents\content-agent"
+> clawhub install tavily-search
+> clawhub install summarize
+> clawhub install spell-check-cn
+> ```
+
 **给数据助手装技能** —— 在终端输入：
 
 ```bash
@@ -136,6 +161,14 @@ cd ~/openclaw-agents/data-agent
 clawhub install duckdb
 clawhub install data-analyst
 ```
+
+> 💻 **Windows 用户：** 打开 PowerShell，输入：
+> ```powershell
+> New-Item -ItemType Directory -Force -Path "$HOME\openclaw-agents\data-agent\skills"
+> cd "$HOME\openclaw-agents\data-agent"
+> clawhub install duckdb
+> clawhub install data-analyst
+> ```
 
 > 💡 **为什么要分开装？** 这样内容助手不会误触数据分析工具，数据助手也不会把精力浪费在搜索上。各干各的，更专业更高效。
 
@@ -151,11 +184,15 @@ OpenClaw 支持通过指定工作目录来启动不同的 Agent：
 openclaw start --workspace ~/openclaw-agents/content-agent
 ```
 
+> 💻 **Windows 用户：** `openclaw start --workspace "$HOME\openclaw-agents\content-agent"`
+
 **启动数据助手：**
 
 ```bash
 openclaw start --workspace ~/openclaw-agents/data-agent
 ```
+
+> 💻 **Windows 用户：** `openclaw start --workspace "$HOME\openclaw-agents\data-agent"`
 
 每个 Agent 会跑在不同的端口上，你可以同时打开两个浏览器标签页，分别和它们聊天。
 

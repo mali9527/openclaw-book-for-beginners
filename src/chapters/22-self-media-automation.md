@@ -26,6 +26,8 @@ clawhub install summarize
 clawhub install web-browsing
 ```
 
+> 💻 **Windows 用户：** 同样的命令，在 PowerShell 里输入即可。
+
 已经装过的不会重复安装，没装的会自动帮你装。这三个就够跑完整个流程了。
 
 ---
@@ -96,7 +98,11 @@ clawhub install web-browsing
 
 如果你想让上面的流程**每天自动跑**，可以设置定时任务。
 
-**方法：** 打开 `~/.openclaw/openclaw.json`，在定时任务部分加上：
+**方法：** 打开配置文件：
+- macOS / Linux：`~/.openclaw/openclaw.json`
+- Windows：`%USERPROFILE%\.openclaw\openclaw.json`
+
+在定时任务部分加上：
 
 ```json
 "daily-content": {
@@ -113,6 +119,8 @@ clawhub install web-browsing
 mkdir -p ~/Documents/content
 ```
 
+> 💻 **Windows 用户：** `New-Item -ItemType Directory -Force -Path "$HOME\Documents\content"`
+
 ---
 
 ## 进阶玩法：内容改编技能（一劳永逸）
@@ -125,11 +133,15 @@ mkdir -p ~/Documents/content
 mkdir -p ~/.openclaw/skills/content-remix
 ```
 
+> 💻 **Windows 用户：** `New-Item -ItemType Directory -Force -Path "$HOME\.openclaw\skills\content-remix"`
+
 **第 2 步：** 用 VS Code 打开这个文件：
 
 ```bash
 code ~/.openclaw/skills/content-remix/SKILL.md
 ```
+
+> 💻 **Windows 用户：** `code "$HOME\.openclaw\skills\content-remix\SKILL.md"`
 
 **第 3 步：** 把下面的内容**复制粘贴**进去，保存：
 

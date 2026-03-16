@@ -58,6 +58,8 @@ tags: ["标签1", "标签2"]
 mkdir -p ~/.openclaw/skills/weekly-report
 ```
 
+> 💻 **Windows 用户：** `New-Item -ItemType Directory -Force -Path "$HOME\.openclaw\skills\weekly-report"`
+
 > 💡 **`mkdir -p` 是什么意思？** `mkdir` 是创建文件夹的命令，`-p` 的意思是"如果父目录不存在也一起创建"。你在终端里敲这一行就行。
 
 ### 编写 SKILL.md

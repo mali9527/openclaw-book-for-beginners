@@ -44,16 +44,24 @@ mkdir -p ~/.openclaw/knowledge/notes
 mkdir -p ~/.openclaw/knowledge/references
 ```
 
-> 💡 **不想用终端？** 你也可以用 Finder 操作：  
-> 1. 按 `Command + Shift + .` 显示隐藏文件  
-> 2. 打开你的用户目录 → `.openclaw` 文件夹  
-> 3. 在里面新建三个文件夹：`knowledge/articles`、`knowledge/notes`、`knowledge/references`
+> 💻 **Windows 用户：** 打开 PowerShell，输入：
+> ```powershell
+> New-Item -ItemType Directory -Force -Path "$HOME\.openclaw\knowledge\articles"
+> New-Item -ItemType Directory -Force -Path "$HOME\.openclaw\knowledge\notes"
+> New-Item -ItemType Directory -Force -Path "$HOME\.openclaw\knowledge\references"
+> ```
+
+> 💡 **不想用终端？** 你也可以用文件管理器操作：  
+> - **macOS**：按 `Command + Shift + .` 显示隐藏文件 → 打开用户目录 → `.openclaw` 文件夹 → 新建三个文件夹  
+> - **Windows**：地址栏输入 `%USERPROFILE%\.openclaw\` → 新建 `knowledge` 文件夹 → 在里面建三个子文件夹
 
 **验证一下：** 输入这条命令，确认文件夹建好了：
 
 ```bash
 ls ~/.openclaw/knowledge/
 ```
+
+> 💻 **Windows 用户：** `dir "$HOME\.openclaw\knowledge\"`
 
 你应该看到 `articles`、`notes`、`references` 三个文件夹。
 

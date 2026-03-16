@@ -4,6 +4,8 @@
 
 先记住一个概念：**Combo 组合技**——把几个简单技能串在一起，威力远大于单个技能。就像格斗游戏里的连招一样。
 
+> 💻 **Windows 用户注意：** 这一章的 `clawhub install` 命令在 PowerShell 里都能直接用，和 macOS/Linux 完全一样。配置文件路径是 `%USERPROFILE%\.openclaw\openclaw.json`。
+
 ---
 
 ## 技能一：tavily-search —— 让 AI 能上网搜东西
