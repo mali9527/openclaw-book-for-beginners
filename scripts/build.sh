@@ -28,6 +28,8 @@ ok() { echo -e "${GREEN}[done]${NC} $1"; }
 merge_chapters() {
     log "合并章节文件 → src/full-book.md"
     cat \
+        "$CHAPTERS_DIR/00-preface.md" \
+        "$CHAPTERS_DIR/00-toc.md" \
         "$CHAPTERS_DIR/01-preface.md" \
         "$CHAPTERS_DIR/02-what-is-agent.md" \
         "$CHAPTERS_DIR/03-core-concepts.md" \

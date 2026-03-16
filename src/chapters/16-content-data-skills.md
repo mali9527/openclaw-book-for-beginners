@@ -138,7 +138,7 @@ clawhub install data-analyst
 ### 把 Excel 变成 AI 分析报告
 
 > "帮我做以下事情：
-> 1. 打开桌面上的「2026Q1销售数据.xlsx」
+> 1. 打开桌面上的「Q1销售数据.xlsx」
 > 2. 用 DuckDB 分析：按产品类别和月份统计销售额
 > 3. 用 data-analyst 画一个堆叠柱状图
 > 4. 写一份 500 字的分析报告，包含趋势和建议

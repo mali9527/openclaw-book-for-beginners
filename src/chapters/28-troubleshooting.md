@@ -150,9 +150,9 @@ openclaw daemon restart
 
 ---
 
-### ❓ 8. Gateway 认证失败（2026 新版本常见）
+### ❓ 8. Gateway 认证失败（新版本常见）
 
-**原因：** OpenClaw 2026 年的新版本加强了 Gateway 安全，首次启动需要认证。
+**原因：** OpenClaw 新版本加强了 Gateway 安全，首次启动需要认证。
 
 **解决办法：**
 1. 运行 `openclaw gateway auth` 完成认证
