@@ -6,7 +6,6 @@ export default defineConfig({
   lang: 'zh-CN',
   base: '/openclaw-book-for-beginners/',
   ignoreDeadLinks: true,
-  mpa: true,
 
   head: [
     ['meta', { name: 'author', content: '马力' }],
@@ -120,7 +119,7 @@ export default defineConfig({
       prev: '上一章',
       next: '下一章'
     },
-    
+
     darkModeSwitchLabel: '深色模式',
     sidebarMenuLabel: '目录',
     returnToTopLabel: '回到顶部',
@@ -128,5 +127,19 @@ export default defineConfig({
 
   markdown: {
     lineNumbers: true,
+    image: {
+      lazyLoading: true
+    }
   },
+
+  vite: {
+    build: {
+      rollupOptions: {
+        onwarn(warning, warn) {
+          if (warning.message?.includes('/images/')) return
+          warn(warning)
+        }
+      }
+    }
+  }
 })

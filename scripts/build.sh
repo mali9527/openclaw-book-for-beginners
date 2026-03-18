@@ -112,10 +112,10 @@ build_mobile() {
 sync_web() {
     log "同步章节到 web/ 目录"
     mkdir -p "$ROOT_DIR/web/chapters" "$ROOT_DIR/web/public"
-    rsync -a --delete "$CHAPTERS_DIR/" "$ROOT_DIR/web/chapters/"
-    rsync -a --delete --exclude='*.md' "$SRC_DIR/images/" "$ROOT_DIR/web/public/images/"
-    # 修复图片路径：../images/ → /images/
-    sed -i '' 's|\.\./images/|/images/|g' "$ROOT_DIR/web/chapters/"*.md
+    rsync -a --delete --exclude='00-cover.md' --exclude='00-toc.md' "$CHAPTERS_DIR/" "$ROOT_DIR/web/chapters/"
+    rsync -a --delete --exclude='*.md' "$SRC_DIR/images/" "$ROOT_DIR/web/chapters/images/"
+    # 修复图片路径：../images/ → ./images/
+    sed -i '' 's|\.\./images/|./images/|g' "$ROOT_DIR/web/chapters/"*.md
     ok "同步完成 ($(ls "$ROOT_DIR/web/chapters/"*.md | wc -l) 章节)"
 }
 
