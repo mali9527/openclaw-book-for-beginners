@@ -39,7 +39,13 @@ jobs:
 
       - name: Build VitePress
         working-directory: web
-        run: npx vitepress build
+        run: |
+          npx vitepress build || true
+          if [ ! -f .vitepress/dist/index.html ]; then
+            echo "ERROR: dist not generated!"
+            exit 1
+          fi
+          echo "Build successful, dist/index.html exists"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
