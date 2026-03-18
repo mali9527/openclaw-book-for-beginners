@@ -27,8 +27,8 @@ jobs:
 
       - name: Sync chapters to web
         run: |
-          mkdir -p web/chapters web/public
-          rsync -a --delete src/chapters/ web/chapters/
+          mkdir -p web/chapters web/public/images
+          rsync -a --delete --exclude='00-cover.md' --exclude='00-toc.md' src/chapters/ web/chapters/
           rsync -a --delete --exclude='*.md' src/images/ web/public/images/
           sed -i 's|\.\./images/|/images/|g' web/chapters/*.md
 

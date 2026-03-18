@@ -6,6 +6,7 @@ export default defineConfig({
   lang: 'zh-CN',
   base: '/openclaw-book-for-beginners/',
   ignoreDeadLinks: true,
+  mpa: true,
 
   head: [
     ['meta', { name: 'author', content: '马力' }],
