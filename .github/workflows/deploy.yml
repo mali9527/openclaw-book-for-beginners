@@ -27,9 +27,10 @@ jobs:
 
       - name: Sync chapters to web
         run: |
-          mkdir -p web/chapters
+          mkdir -p web/chapters web/public/images/cover
           rsync -a --delete --exclude='00-cover.md' --exclude='00-toc.md' src/chapters/ web/chapters/
           rsync -a --delete --exclude='*.md' src/images/ web/chapters/images/
+          cp src/images/cover/book-cover.png web/public/images/cover/
           sed -i 's|\.\./images/|./images/|g' web/chapters/*.md
 
       - name: Install dependencies
