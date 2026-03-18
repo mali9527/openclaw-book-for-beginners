@@ -8,6 +8,8 @@
 
 ## 核心原理：什么是 RAG？
 
+![RAG 知识流](../images/23/rag-knowledge-flow.png)
+
 > 💡 **RAG 是什么？** RAG 全称 Retrieval-Augmented Generation，翻译过来就是"检索增强生成"。你不用记这个名字，**一句话理解就是：AI 回答你问题之前，先去你的资料库里翻一翻，找到相关的内容，再综合回答你**。
 
 这就是为什么 RAG 重要：没有 RAG 的 AI 只知道它训练数据里的东西；有了 RAG 的 AI，能额外知道**你存进去的所有东西**。

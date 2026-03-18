@@ -100,6 +100,8 @@ clawhub install web-browsing
 
 ### 它和 tavily-search 有什么区别？
 
+![搜索 vs 浏览](../images/14/search-vs-browse.png)
+
 | | tavily-search | web-browsing |
 |---|---|---|
 | **能做什么** | 搜索并返回文字结果 | 打开网页、点击、填表、截图 |
@@ -132,6 +134,8 @@ clawhub install web-browsing
 ---
 
 ## 🔥 Combo 组合技：三件套联合出击
+
+![技能组合技](../images/14/combo-technique.png)
 
 单个技能好用，三个串起来更好用。这里教你几个实用的 Combo：
 

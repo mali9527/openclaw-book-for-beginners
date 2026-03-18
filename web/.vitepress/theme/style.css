@@ -1,0 +1,38 @@
+/* OpenClaw Book — 自定义 VitePress 主题 */
+
+:root {
+  /* 酒红色主题色 */
+  --vp-c-brand-1: #722F37;
+  --vp-c-brand-2: #8B3A44;
+  --vp-c-brand-3: #5C262E;
+  --vp-c-brand-soft: rgba(114, 47, 55, 0.14);
+  
+  /* 首页 hero 渐变 */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, #722F37 0%, #B85C5C 100%);
+  --vp-home-hero-image-background-image: linear-gradient(135deg, rgba(114,47,55,0.2) 0%, rgba(184,92,92,0.1) 100%);
+  --vp-home-hero-image-filter: blur(40px);
+}
+
+.dark {
+  --vp-c-brand-1: #B85C5C;
+  --vp-c-brand-2: #D08080;
+  --vp-c-brand-3: #9A4A4A;
+}
+
+/* 侧边栏活跃项 */
+.VPSidebarItem.is-active > .item .link > .text {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
+
+/* 代码块美化 */
+.vp-doc div[class*='language-'] {
+  border-radius: 8px;
+}
+
+/* 引用块左侧彩条 */
+.vp-doc blockquote {
+  border-left: 4px solid var(--vp-c-brand-1);
+  background-color: var(--vp-c-brand-soft);
+}

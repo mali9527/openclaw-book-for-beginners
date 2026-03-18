@@ -63,6 +63,8 @@ clawhub install spell-check-cn
 
 ### 3. DuckDB —— 本地数据分析神器
 
+![DuckDB vs Excel](../images/16/duckdb-vs-excel.png)
+
 DuckDB 是一个轻量级的本地分析数据库。什么意思呢？就是你把 Excel、CSV 文件丢给它，它能直接用 SQL 帮你分析，速度极快，而且**完全在你本地运行，数据不会上传到任何地方**。
 
 > 💡 **为什么推荐 DuckDB 而不是 Excel？** Excel 处理几万行数据就开始卡了。DuckDB 处理几百万行数据都不在话下。而且你不需要学 SQL——你用自然语言告诉 AI 你想查什么，AI 帮你写 SQL，DuckDB 帮你跑。
@@ -158,6 +160,8 @@ clawhub install data-analyst
 ---
 
 ## ⚠️ 技能断舍离警告
+
+![技能极简主义](../images/16/skill-minimalism.png)
 
 到这里我们已经介绍了不少技能了。你可能有冲动全装上——**别这么干**。
 

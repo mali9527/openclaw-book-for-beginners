@@ -1,0 +1,60 @@
+name: Deploy VitePress to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Sync chapters to web
+        run: |
+          mkdir -p web/chapters web/public
+          rsync -a --delete src/chapters/ web/chapters/
+          rsync -a --delete --exclude='*.md' src/images/ web/public/images/
+          sed -i 's|\.\./images/|/images/|g' web/chapters/*.md
+
+      - name: Install dependencies
+        working-directory: web
+        run: npm install
+
+      - name: Build VitePress
+        working-directory: web
+        run: npx vitepress build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/.vitepress/dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

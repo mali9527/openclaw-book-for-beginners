@@ -1,7 +1,15 @@
 # Output files
 pub/pdf/*.pdf
-pub/html/*.html
+pub/html/
 src/full-book.md
+
+# Web build artifacts
+web/node_modules/
+web/.vitepress/cache/
+web/.vitepress/dist/
+web/.vitepress/.temp/
+web/chapters/
+web/public/images/
 
 # LaTeX intermediate files
 *.aux

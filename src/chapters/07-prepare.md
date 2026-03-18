@@ -2,6 +2,8 @@
 
 好了，朋友，前面我们把原理都说清楚了，接下来就要动手安装 OpenClaw 了。在开始之前，我们看看你需要准备哪些东西——别怕，东西真的不多，也不难。
 
+![准备清单](../images/07/prep-checklist.png)
+
 ## 第一，你需要 Node.js 22 以上版本
 
 OpenClaw 是用 TypeScript 写的，运行需要 Node.js 环境，所以你得先装一个 Node.js，版本要 22 或者更高。
