@@ -414,60 +414,62 @@
 
 | 编号 | 章节 | 文件名 | 描述 | 状态 |
 |------|------|--------|------|------|
-| 01-01 | 01 | reading-roadmap.png | 三条阅读路线图 | ⬜ 待生成 |
-| 02-01 | 02 | advisor-vs-assistant.png | 传统 AI vs 智能体对比 | ⬜ 待生成 |
-| 02-02 | 02 | ai-evolution.png | AI 进化三阶段 | ⬜ 待生成 |
-| 02-03 | 02 | agent-scenarios.png | 智能体实用场景速览 | ⬜ 待生成 |
-| 03-01 | 03 | five-components.png | 五大核心组件 | ⬜ 待生成 |
-| 03-02 | 03 | rag-flow.png | RAG 检索流程 | ⬜ 待生成 |
-| 04-01 | 04 | growth-timeline.png | OpenClaw 增长里程碑 | ⬜ 待生成 |
-| 04-02 | 04 | six-advantages.png | OpenClaw 六大优势 | ⬜ 待生成 |
-| 05-01 | 05 | gateway-architecture.png | Gateway 电话总机架构 | ⬜ 待生成 |
-| 05-02 | 05 | message-flow.png | 完整消息流程 | ⬜ 待生成 |
-| 06-01 | 06 | memory-layers.png | 七层记忆金字塔 | ⬜ 待生成 |
-| 07-01 | 07 | prep-checklist.png | 准备工作清单 | ⬜ 待生成 |
-| 08-01 | 08 | home-directory.png | 小龙虾的家目录结构 | ⬜ 待生成 |
-| 08-02 | 08 | three-steps.png | 三步上手指南 | ⬜ 待生成 |
-| 09-01 | 09 | config-file-map.png | 配置文件结构导览 | ⬜ 待生成 |
-| 09-02 | 09 | two-step-config.png | 模型配置两步法 | ⬜ 待生成 |
-| 10-01 | 10 | feishu-setup-flow.png | 飞书配置 8 步流程 | ⬜ 待生成 |
-| 11-01 | 11 | four-personality-files.png | 四个人设文件关系 | ⬜ 待生成 |
-| 12-00 | 12 | kitchen-metaphor.png | 厨房比喻概念图 | ⬜ 待生成 |
-| 12-01 | 12 | tool-vs-skill.png | 工具 vs 技能对比 | ⬜ 待生成 |
-| 12-02 | 12 | progressive-loading.png | 渐进式加载示意 | ⬜ 待生成 |
-| 13-01 | 13 | clawhub-store.png | ClawHub 技能商店 | ⬜ 待生成 |
-| 13-02 | 13 | pick-skill-tips.png | 选技能三看法则 | ⬜ 待生成 |
-| 14-01 | 14 | search-vs-browse.png | 搜索 vs 浏览器 | ⬜ 待生成 |
-| 14-02 | 14 | combo-technique.png | Combo 组合技 | ⬜ 待生成 |
-| 15-01 | 15 | office-automation.png | 办公自动化全景 | ⬜ 待生成 |
-| 15-02 | 15 | work-start-combo.png | 每日启动仪式 | ⬜ 待生成 |
-| 16-01 | 16 | duckdb-vs-excel.png | DuckDB vs Excel | ⬜ 待生成 |
-| 16-02 | 16 | skill-minimalism.png | 技能断舍离 | ⬜ 待生成 |
-| 17-01 | 17 | self-evolution-loop.png | AI 自我进化循环 | ⬜ 待生成 |
-| 18-01 | 18 | skill-md-structure.png | SKILL.md 文件结构 | ⬜ 待生成 |
-| 18-02 | 18 | ai-writes-skill.png | AI 帮你写技能 | ⬜ 待生成 |
-| 19-01 | 19 | morning-briefing.png | 晨间简报效果 | ⬜ 待生成 |
-| 19-02 | 19 | eight-scenarios.png | 八大场景全景 | ⬜ 待生成 |
-| 20-01 | 20 | six-creative-cases.png | 六大创意案例巡礼 | ⬜ 待生成 |
-| 20-02 | 20 | data-privacy.png | 数据隐私优势 | ⬜ 待生成 |
-| 21-01 | 21 | human-ai-collab.png | 人机协作分工 | ⬜ 待生成 |
-| 22-01 | 22 | content-workflow.png | 内容创作五步流程 | ⬜ 待生成 |
-| 23-01 | 23 | rag-knowledge-flow.png | RAG 知识管理流程 | ⬜ 待生成 |
+| 01-01 | 01 | reading-roadmap.png | 三条阅读路线图 | ✅ 已生成 |
+| 02-01 | 02 | advisor-vs-assistant.png | 传统 AI vs 智能体对比 | ✅ 已生成 |
+| 02-02 | 02 | ai-evolution.png | AI 进化三阶段 | ✅ 已生成 |
+| 02-03 | 02 | agent-scenarios.png | 智能体实用场景速览 | ✅ 已生成 |
+| 03-01 | 03 | five-components.png | 五大核心组件 | ✅ 已生成 |
+| 03-02 | 03 | rag-flow.png | RAG 检索流程 | ✅ 已生成 |
+| 04-01 | 04 | growth-timeline.png | OpenClaw 增长里程碑 | ✅ 已生成 |
+| 04-02 | 04 | six-advantages.png | OpenClaw 六大优势 | ✅ 已生成 |
+| 05-01 | 05 | gateway-architecture.png | Gateway 电话总机架构 | ✅ 已生成 |
+| 05-02 | 05 | message-flow.png | 完整消息流程 | ✅ 已生成 |
+| 06-01 | 06 | memory-layers.png | 七层记忆金字塔 | ✅ 已生成 |
+| 07-01 | 07 | prep-checklist.png | 准备工作清单 | ✅ 已生成 |
+| 08-01 | 08 | home-directory.png | 小龙虾的家目录结构 | ✅ 已生成 |
+| 08-02 | 08 | three-steps.png | 三步上手指南 | ✅ 已生成 |
+| 09-01 | 09 | config-file-map.png | 配置文件结构导览 | ✅ 已生成 |
+| 09-02 | 09 | two-step-config.png | 模型配置两步法 | ✅ 已生成 |
+| 10-01 | 10 | feishu-setup-flow.png | 飞书配置 8 步流程 | ✅ 已生成 |
+| 11-01 | 11 | four-personality-files.png | 四个人设文件关系 | ✅ 已生成 |
+| 12-00 | 12 | kitchen-metaphor.png | 厨房比喻概念图 | ✅ 已生成 |
+| 12-01 | 12 | tool-vs-skill.png | 工具 vs 技能对比 | ✅ 已生成 |
+| 12-02 | 12 | progressive-loading.png | 渐进式加载示意 | ✅ 已生成 |
+| 13-01 | 13 | clawhub-store.png | ClawHub 技能商店 | ✅ 已生成 |
+| 13-02 | 13 | pick-skill-tips.png | 选技能三看法则 | ✅ 已生成 |
+| 14-01 | 14 | search-vs-browse.png | 搜索 vs 浏览器 | ✅ 已生成 |
+| 14-02 | 14 | combo-technique.png | Combo 组合技 | ✅ 已生成 |
+| 15-01 | 15 | office-automation.png | 办公自动化全景 | ✅ 已生成 |
+| 15-02 | 15 | work-start-combo.png | 每日启动仪式 | ✅ 已生成 |
+| 16-01 | 16 | duckdb-vs-excel.png | DuckDB vs Excel | ✅ 已生成 |
+| 16-02 | 16 | skill-minimalism.png | 技能断舍离 | ✅ 已生成 |
+| 17-01 | 17 | self-evolution-loop.png | AI 自我进化循环 | ✅ 已生成 |
+| 18-01 | 18 | skill-md-structure.png | SKILL.md 文件结构 | ✅ 已生成 |
+| 18-02 | 18 | ai-writes-skill.png | AI 帮你写技能 | ✅ 已生成 |
+| 19-01 | 19 | morning-briefing.png | 晨间简报效果 | ✅ 已生成 |
+| 19-02 | 19 | eight-scenarios.png | 八大场景全景 | ✅ 已生成 |
+| 20-01 | 20 | six-creative-cases.png | 六大创意案例巡礼 | ✅ 已生成 |
+| 20-02 | 20 | data-privacy.png | 数据隐私优势 | ✅ 已生成 |
+| 21-01 | 21 | human-ai-collab.png | 人机协作分工 | ✅ 已生成 |
+| 22-01 | 22 | content-workflow.png | 内容创作五步流程 | ✅ 已生成 |
+| 23-01 | 23 | rag-knowledge-flow.png | RAG 知识管理流程 | ✅ 已生成 |
 | 23-02 | 23 | knowledge-dirs.png | 知识库目录结构 | ⬜ 待生成 |
-| 24-01 | 24 | multi-agent-team.png | 多 Agent 团队示意 | ⬜ 待生成 |
-| 25-01 | 25 | data-analysis-flow.png | 数据分析四步流程 | ⬜ 待生成 |
-| 25-02 | 25 | ops-daily-report.png | 运营日报效果 | ⬜ 待生成 |
-| 26-01 | 26 | service-three-layers.png | 客服三层架构 | ⬜ 待生成 |
-| 27-01 | 27 | cronjob-vs-n8n.png | CronJob vs n8n | ⬜ 待生成 |
-| 27-02 | 27 | n8n-workflow-sketch.png | n8n 工作流示意 | ⬜ 待生成 |
-| 28-01 | 28 | troubleshoot-four-steps.png | 排错四步法 | ⬜ 待生成 |
-| 29-01 | 29 | security-shield.png | 安全防护概念 | ⬜ 待生成 |
+| 24-01 | 24 | multi-agent-team.png | 多 Agent 团队示意 | ✅ 已生成 |
+| 25-01 | 25 | data-workflow.png | 数据分析四步流程 | ✅ 已生成 |
+| 25-02 | 25 | daily-report-example.png | 运营日报效果 | ✅ 已生成 |
+| 26-01 | 26 | customer-service-layers.png | 客服三层架构 | ✅ 已生成 |
+| 27-01 | 27 | n8n-vs-cronjob.png | CronJob vs n8n | ✅ 已生成 |
+| 27-02 | 27 | n8n-news-workflow.png | n8n 工作流示意 | ✅ 已生成 |
+| 28-01 | 28 | troubleshoot-four-steps.png | 排错四步法 | ✅ 已生成 |
+| 29-01 | 29 | security-shield.png | 安全防护概念 | ✅ 已生成 |
 | 29-02 | 29 | prompt-injection.png | 提示词注入示意 | ⬜ 待生成 |
 | 29-03 | 29 | five-security-rules.png | 五条安全规则速查 | ⬜ 待生成 |
-| 30-01 | 30 | compound-effect.png | 复利效应成长曲线 | ⬜ 待生成 |
+| 30-01 | 30 | compound-interest.png | 复利效应成长曲线 | ✅ 已生成 |
 | 30-02 | 30 | learning-journey.png | 学习成果回顾 | ⬜ 待生成 |
 
-**共计 52 张插图，覆盖 26 个章节。**
+**共计 52 张插图，48 张已完成，4 张待生成。**
+
+> 注：部分已生成的插图实际文件名与原始规划略有差异（如 `data-workflow.png` 替代 `data-analysis-flow.png`），以实际文件为准。
 
 ---
 
@@ -479,3 +481,4 @@
 - **第 31 章**（附录速查表）：纯表格速查，不需要插图
 
 > 如需为这些章节补充插图，可随时在本文档中添加条目。
+

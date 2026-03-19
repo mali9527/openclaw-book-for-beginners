@@ -20,6 +20,8 @@
 4. **成功/失败判断**：每个操作后告诉读者"成功长什么样，失败长什么样"
 5. **安全感**：反复强调"不会搞坏电脑"、"随时可以重置"
 
+---
+
 ## 内容范围（7 部分，31 章）
 
 ### 第一部分：认识 AI 智能体（第 1-3 章）
@@ -95,6 +97,8 @@ OpenClaw 的灵魂——技能从入门到自己写。
 | 30 | 结尾 | 复利效应、三条建议、学习资源 |
 | 31 | 附录：终端命令速查表 | macOS/Windows 命令对照表 |
 
+---
+
 ## 风格规范
 
 | 规范 | 要求 |
@@ -109,54 +113,123 @@ OpenClaw 的灵魂——技能从入门到自己写。
 | 双系统 | 所有终端命令同时给出 macOS 和 Windows 版本 |
 | 逃课方法 | 配置操作提供"直接对 AI 说…让它帮你配"的替代方案 |
 
+---
+
 ## 输出格式
 
-| 格式 | 说明 | 状态 |
-|------|------|------|
-| Markdown 源文件 | GitHub 在线阅读 | ✅ 已有 |
-| A4 PDF | 电脑端阅读 / 打印 | ✅ 已有 |
-| 手机 PDF (9×16cm) | 手机端阅读 | ✅ 已有 |
-| HTML 电子书 | 未来计划 | 🔜 待做 |
+| 格式 | 说明 | 地址 / 路径 | 状态 |
+|------|------|-------------|------|
+| Web 在线版 | VitePress 驱动，自动部署到 GitHub Pages | https://mali9527.github.io/openclaw-book-for-beginners/ | ✅ 已上线 |
+| B5 标准版 PDF | 图书发行定位，B5 开本 | `pub/pdf/openclaw-book.pdf` | ✅ 已有 |
+| 手机版 PDF | 9×16cm，手机端阅读优化 | `pub/pdf/openclaw-book-mobile.pdf` | ✅ 已有 |
+| Markdown 源文件 | GitHub 仓库在线阅读 | https://github.com/mali9527/openclaw-book-for-beginners | ✅ 已有 |
+
+---
 
 ## 项目结构
 
 ```
 openclawbook/
 ├── src/
-│   ├── chapters/          ← 32 个 Markdown 章节源文件（00-toc ~ 31-appendix）
-│   ├── images/            ← 截图和插图（待补充）
-│   └── full-book.md       ← 构建合并后的完整书稿
+│   ├── chapters/              ← 32 个 Markdown 章节源文件（00-toc ~ 31-appendix）
+│   ├── images/                ← 插图资源（50 张已完成）
+│   │   ├── {01..30}/          ← 按章节编号分目录存放
+│   │   ├── cover/             ← 封面图
+│   │   └── author/            ← 作者头像
+│   └── full-book.md           ← 构建时合并生成的完整书稿
 ├── docs/
-│   ├── requirements.md    ← 本文件
-│   └── research/          ← 研究资料和反馈
+│   ├── requirements.md        ← 本文件（项目需求文档）
+│   ├── illustration-requirements.md  ← 插图需求清单（52 张）
+│   ├── illustration-style-guide.md   ← 插图风格指南
+│   └── research/              ← 研究资料和反馈
 ├── scripts/
-│   └── build.sh           ← 一键构建脚本（merge / pdf / mobile）
-├── templates/pdf/         ← PDF 排版模板
-└── pub/pdf/               ← 生成的 PDF 文件
+│   ├── build.sh               ← 一键构建脚本（merge / pdf / mobile / web）
+│   └── generate_images.py     ← Gemini API 批量生成插图
+├── templates/pdf/             ← PDF 排版模板（LaTeX）
+│   ├── metadata.yaml          ← B5 标准版元数据
+│   ├── metadata-mobile.yaml   ← 手机版元数据
+│   ├── book-style.tex         ← 标准版排版样式
+│   └── mobile-style.tex       ← 手机版排版样式
+├── web/                       ← VitePress 网站源码
+│   ├── index.md               ← 首页（三个入口 + 作者信息）
+│   ├── .vitepress/
+│   │   ├── config.mts         ← 站点配置（导航/侧边栏/SEO）
+│   │   └── theme/             ← 自定义主题（PDF 下载修复等）
+│   └── package.json           ← Web 依赖
+├── .github/workflows/
+│   └── deploy.yml             ← CI/CD：自动构建 PDF + 部署 Web
+├── pub/                       ← 构建产物（gitignored）
+│   ├── pdf/                   ← 生成的 PDF 文件
+│   └── html/                  ← 本地 Web 构建产物
+└── .gitignore
 ```
 
+---
+
 ## 构建方式
+
+### 本地构建
 
 ```bash
 # 合并所有章节
 ./scripts/build.sh merge
 
-# 生成 A4 PDF
+# 生成 B5 标准版 PDF（需要 Pandoc + xelatex）
 ./scripts/build.sh pdf
 
-# 生成手机 PDF
+# 生成手机版 PDF
 ./scripts/build.sh mobile
 
-# 全部构建
+# 构建 Web 版（需要 Node.js）
+./scripts/build.sh web
+
+# 全部构建（merge + pdf + mobile）
 ./scripts/build.sh all
 ```
+
+### 本地预览 Web 版
+
+```bash
+cd web && npx vitepress dev
+# 浏览器打开 http://localhost:5173/openclaw-book-for-beginners/
+```
+
+### 自动部署（CI/CD）
+
+每次 push 到 `master` 分支，GitHub Actions 自动执行：
+
+1. 安装 LaTeX（texlive-xetex）和 Pandoc
+2. 合并章节，生成两个版本 PDF
+3. 同步章节和图片到 Web 目录
+4. 构建 VitePress 站点
+5. 部署到 GitHub Pages
+
+> ⚠️ CI 字体使用 **Noto Sans CJK SC**，本地使用系统字体（macOS 默认 PingFang SC）。两者排版效果略有差异。
+
+---
+
+## 依赖清单
+
+| 工具 | 用途 | 安装方式 |
+|------|------|----------|
+| Node.js 20+ | Web 版构建 | `brew install node` / 官网下载 |
+| Pandoc | Markdown → PDF | `brew install pandoc` |
+| XeLaTeX | PDF 引擎（中文支持）| `brew install --cask mactex` |
+| rsync | 文件同步 | macOS 自带 |
+
+---
 
 ## 当前状态
 
 - **总字数**：约 5,700+ 行 Markdown
-- **章节数**：31 章 + 目录页
-- **最近更新**：2026 年 3 月 16 日
-- **待办事项**：
-  - [ ] 补充关键界面截图（飞书后台、n8n 界面、Node.js 下载页等）
-  - [ ] HTML 电子书格式支持
-  - [ ] 社区读者反馈收集与迭代
+- **章节数**：31 章 + 封面 + 目录 + 自序
+- **插图数**：50 / 52 张已完成（详见 `illustration-requirements.md`）
+- **在线阅读**：https://mali9527.github.io/openclaw-book-for-beginners/
+- **最近更新**：2026 年 3 月 19 日
+
+### 待办事项
+
+- [ ] 补充剩余 2 张插图（29-02 prompt-injection、29-03 five-security-rules）
+- [ ] 补充关键界面截图（飞书后台、n8n 界面、Node.js 下载页等）
+- [ ] 社区读者反馈收集与迭代
+- [ ] CI 中增加 PDF 字体缓存以加速构建
