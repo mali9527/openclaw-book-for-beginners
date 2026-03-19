@@ -31,6 +31,8 @@ jobs:
           rsync -a --delete --exclude='00-cover.md' --exclude='00-toc.md' src/chapters/ web/chapters/
           rsync -a --delete --exclude='*.md' src/images/ web/chapters/images/
           cp src/images/cover/book-cover.png web/public/images/cover/
+          mkdir -p web/public/images/author
+          cp src/images/author/avatar.jpg web/public/images/author/
           sed -i 's|\.\./images/|./images/|g' web/chapters/*.md
 
       - name: Install dependencies

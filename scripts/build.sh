@@ -114,8 +114,12 @@ sync_web() {
     mkdir -p "$ROOT_DIR/web/chapters" "$ROOT_DIR/web/public"
     rsync -a --delete --exclude='00-cover.md' --exclude='00-toc.md' "$CHAPTERS_DIR/" "$ROOT_DIR/web/chapters/"
     rsync -a --delete --exclude='*.md' "$SRC_DIR/images/" "$ROOT_DIR/web/chapters/images/"
-    mkdir -p "$ROOT_DIR/web/public/images/cover"
+    mkdir -p "$ROOT_DIR/web/public/images/cover" "$ROOT_DIR/web/public/images/author" "$ROOT_DIR/web/public/downloads"
     cp "$SRC_DIR/images/cover/book-cover.png" "$ROOT_DIR/web/public/images/cover/"
+    cp "$SRC_DIR/images/author/avatar.jpg" "$ROOT_DIR/web/public/images/author/"
+    # 复制 PDF 到 downloads（如果存在）
+    [ -f "$PUB_DIR/pdf/openclaw-book.pdf" ] && cp "$PUB_DIR/pdf/openclaw-book.pdf" "$ROOT_DIR/web/public/downloads/"
+    [ -f "$PUB_DIR/pdf/openclaw-book-mobile.pdf" ] && cp "$PUB_DIR/pdf/openclaw-book-mobile.pdf" "$ROOT_DIR/web/public/downloads/"
     # 修复图片路径：../images/ → ./images/
     sed -i '' 's|\.\./images/|./images/|g' "$ROOT_DIR/web/chapters/"*.md
     ok "同步完成 ($(ls "$ROOT_DIR/web/chapters/"*.md | wc -l) 章节)"

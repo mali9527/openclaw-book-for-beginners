@@ -10,11 +10,14 @@ hero:
     alt: OpenClaw 零基础入门
   actions:
     - theme: brand
-      text: 📖 开始阅读
+      text: 📖 在线阅读（Web 版）
       link: /chapters/01-preface
     - theme: alt
-      text: ⚡ 快速上手
-      link: /chapters/07-prepare
+      text: 📄 PDF（图书发行版）
+      link: /downloads/openclaw-book.pdf
+    - theme: alt
+      text: 📱 PDF（手机优化版）
+      link: /downloads/openclaw-book-mobile.pdf
 
 features:
   - icon: 🧠
@@ -31,7 +34,66 @@ features:
     details: 所有数据都在本地，不用交给第三方，用着放心。
 ---
 
-<div style="text-align: center; padding: 2rem 0; color: var(--vp-c-text-2);">
-  <p><strong>作者：马力</strong> ｜ 资深产品经理、AI 研究者</p>
-  <p>抖音：<strong>马力AI和商业思维</strong></p>
+<div class="author-section">
+  <img src="/images/author/avatar.jpg" alt="马力" class="author-avatar" />
+  <div class="author-info">
+    <p class="author-name">马力</p>
+    <p class="author-title">资深产品经理、AI 研究者、产业经济和商业思维研究者</p>
+    <p class="author-social">抖音：<strong>马力AI和商业思维</strong></p>
+  </div>
 </div>
+
+<style>
+.author-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2.5rem 1rem;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.author-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--vp-c-brand-1);
+  box-shadow: 0 4px 12px rgba(114, 47, 55, 0.2);
+  flex-shrink: 0;
+}
+
+.author-info {
+  text-align: left;
+}
+
+.author-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+  margin: 0 0 0.3rem 0;
+}
+
+.author-title {
+  font-size: 0.9rem;
+  color: var(--vp-c-text-2);
+  margin: 0 0 0.2rem 0;
+}
+
+.author-social {
+  font-size: 0.9rem;
+  color: var(--vp-c-text-2);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .author-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .author-info {
+    text-align: center;
+  }
+}
+</style>
