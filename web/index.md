@@ -14,10 +14,10 @@ hero:
       link: /chapters/01-preface
     - theme: alt
       text: 📄 PDF（图书发行版）
-      link: /downloads/openclaw-book.pdf
+      link: https://mali9527.github.io/openclaw-book-for-beginners/downloads/openclaw-book.pdf
     - theme: alt
       text: 📱 PDF（手机优化版）
-      link: /downloads/openclaw-book-mobile.pdf
+      link: https://mali9527.github.io/openclaw-book-for-beginners/downloads/openclaw-book-mobile.pdf
 
 features:
   - icon: 🧠
