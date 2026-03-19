@@ -25,14 +25,55 @@ jobs:
         with:
           node-version: 20
 
+      - name: Install LaTeX & Pandoc
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq texlive-xetex texlive-fonts-extra texlive-lang-chinese fonts-noto-cjk pandoc
+
+      - name: Build PDFs
+        run: |
+          bash scripts/build.sh merge
+          mkdir -p pub/pdf
+          # 标准版 PDF
+          pandoc src/full-book.md \
+            --metadata-file=templates/pdf/metadata.yaml \
+            --include-in-header=templates/pdf/book-style.tex \
+            -o pub/pdf/openclaw-book.pdf \
+            --pdf-engine=xelatex \
+            --resource-path=src/chapters:src \
+            --top-level-division=chapter \
+            --wrap=preserve \
+            -V CJKmainfont="Noto Sans CJK SC" \
+            -V mainfont="Noto Sans CJK SC" \
+            -V sansfont="Noto Sans CJK SC" \
+            -V monofont="DejaVu Sans Mono" \
+            2>&1 | grep -v "WARNING" || true
+          echo "Standard PDF: $(du -h pub/pdf/openclaw-book.pdf | cut -f1)"
+          # 手机版 PDF
+          pandoc src/full-book.md \
+            --metadata-file=templates/pdf/metadata-mobile.yaml \
+            --include-in-header=templates/pdf/mobile-style.tex \
+            -o pub/pdf/openclaw-book-mobile.pdf \
+            --pdf-engine=xelatex \
+            --resource-path=src/chapters:src \
+            --top-level-division=chapter \
+            --wrap=preserve \
+            -V CJKmainfont="Noto Sans CJK SC" \
+            -V mainfont="Noto Sans CJK SC" \
+            -V sansfont="Noto Sans CJK SC" \
+            -V monofont="DejaVu Sans Mono" \
+            2>&1 | grep -v "WARNING" || true
+          echo "Mobile PDF: $(du -h pub/pdf/openclaw-book-mobile.pdf | cut -f1)"
+
       - name: Sync chapters to web
         run: |
-          mkdir -p web/chapters web/public/images/cover
+          mkdir -p web/chapters web/public/images/cover web/public/images/author web/public/downloads
           rsync -a --delete --exclude='00-cover.md' --exclude='00-toc.md' src/chapters/ web/chapters/
           rsync -a --delete --exclude='*.md' src/images/ web/chapters/images/
           cp src/images/cover/book-cover.png web/public/images/cover/
-          mkdir -p web/public/images/author
           cp src/images/author/avatar.jpg web/public/images/author/
+          cp pub/pdf/openclaw-book.pdf web/public/downloads/
+          cp pub/pdf/openclaw-book-mobile.pdf web/public/downloads/
           sed -i 's|\.\./images/|./images/|g' web/chapters/*.md
 
       - name: Install dependencies
